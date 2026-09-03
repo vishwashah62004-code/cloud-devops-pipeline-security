@@ -1,0 +1,25 @@
+name: Cloud DevOps Security Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: |
+          test -f index.html
+          echo "Application file found successfully"
+
+      - name: Pipeline completed
+        run: echo "Basic CI pipeline completed successfully"
