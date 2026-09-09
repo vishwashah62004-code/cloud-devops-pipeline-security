@@ -20,7 +20,7 @@ jobs:
       - name: Check GitHub Actions security configuration
         uses: bridgecrewio/checkov-action@master
         with:
-          directory: .github/workflows
+          file: .github/workflows/security-test.yml
           framework: github_actions
           output_format: cli
           soft_fail: false
