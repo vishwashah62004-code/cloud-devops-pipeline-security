@@ -3,7 +3,8 @@ name: Security Misconfiguration Test
 on:
   workflow_dispatch:
 
-permissions: write-all
+permissions:
+  contents: read
 
 jobs:
   security-test:
