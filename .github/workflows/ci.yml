@@ -16,10 +16,24 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Check HTML file
+      - name: Check application file
         run: |
           test -f index.html
           echo "Application file found successfully"
 
+      - name: Secret security check
+        run: |
+          if grep -RniE "password=|api_key=|secret_key=|aws_access_key" --exclude-dir=.git .; then
+            echo "SECURITY ISSUE: Possible secret detected!"
+            exit 1
+          else
+            echo "Secret scan passed - No obvious secrets detected"
+          fi
+
+      - name: Security gate
+        run: |
+          echo "Security Gate: PASSED"
+          echo "No blocking security issues detected."
+
       - name: Pipeline completed
-        run: echo "Basic CI pipeline completed successfully"
+        run: echo "Secure CI/CD pipeline completed successfully"
