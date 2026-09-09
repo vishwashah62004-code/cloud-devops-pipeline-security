@@ -1,0 +1,14 @@
+name: Security Misconfiguration Test
+
+on:
+  workflow_dispatch:
+
+permissions: write-all
+
+jobs:
+  security-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test workflow
+        run: echo "Testing workflow security configuration"
