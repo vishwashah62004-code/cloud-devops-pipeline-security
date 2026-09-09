@@ -48,7 +48,11 @@ jobs:
           exit-code: '1'
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
-          
+      
+      - name: Infrastructure as Code Security Scan
+        run: |
+          pip install checkov
+          checkov -d infrastructure  
       - name: Security gate
         run: |
           echo "Security Gate: PASSED"
