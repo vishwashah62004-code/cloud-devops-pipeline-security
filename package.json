@@ -1,0 +1,8 @@
+{
+  "name": "cloud-devops-security-demo",
+  "version": "1.0.0",
+  "description": "Demo application for DevSecOps dependency security testing",
+  "dependencies": {
+    "lodash": "4.17.20"
+  }
+}
