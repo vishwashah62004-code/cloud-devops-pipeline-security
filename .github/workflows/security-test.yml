@@ -10,5 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
       - name: Test workflow
         run: echo "Testing workflow security configuration"
+
+      - name: Check GitHub Actions security configuration
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .github/workflows
+          framework: github_actions
+          output_format: cli
+          soft_fail: false
