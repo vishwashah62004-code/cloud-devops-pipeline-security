@@ -23,7 +23,7 @@ jobs:
 
       - name: Secret security check
         run: |
-          if grep -RniE "password=|api_key=|secret_key=|aws_access_key" --exclude-dir=.git .; then
+          if grep -RniE "password=|api_key=|secret_key=|aws_access_key" --exclude-dir=.git --exclude='ci.yml' .; then
             echo "SECURITY ISSUE: Possible secret detected!"
             exit 1
           else
