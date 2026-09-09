@@ -29,6 +29,12 @@ jobs:
           else
             echo "Secret scan passed - No obvious secrets detected"
           fi
+          
+      - name: Dependency security check
+        run: |
+          echo "Running dependency security scan..."
+          npm install --package-lock-only
+          npm audit --audit-level=high
 
       - name: Security gate
         run: |
@@ -37,3 +43,5 @@ jobs:
 
       - name: Pipeline completed
         run: echo "Secure CI/CD pipeline completed successfully"
+        
+     
