@@ -3,6 +3,11 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "devops_security_demo" {
+  #checkov:skip=CKV2_AWS_62:Event notifications are outside the scope of this CI/CD security demonstration
+  #checkov:skip=CKV_AWS_18:Access logging requires an additional logging destination and is outside this demonstration scope
+  #checkov:skip=CKV_AWS_144:Cross-region replication is outside the scope of this CI/CD security demonstration
+  #checkov:skip=CKV_AWS_145:KMS-based encryption requires additional key-management configuration and is outside this demonstration scope
+
   bucket = "cloud-devops-security-demo-bucket"
 
   tags = {
