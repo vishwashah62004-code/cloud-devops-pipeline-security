@@ -1,3 +1,1 @@
-username=testuser
-password=DummyTestSecret123
-api_key=DEMO_ONLY_NOT_A_REAL_KEY
+
